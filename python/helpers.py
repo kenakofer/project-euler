@@ -19,6 +19,24 @@ def divisors(a, proper=True):
         l.remove(a)
     return l
 
+def permutations(l):
+    if len(l) <= 1:
+        yield l
+        return
+    for i in range(len(l)):
+        for p in permutations( l[:i] + l[i+1:] ):
+            yield [l[i]] + p
+
+def fibonaccis():
+    f1 = 1
+    f2 = 1
+    yield f1
+    yield f2
+    while True:
+        (f1, f2) = (f2, f1+f2)
+        yield f2
+
+
 # PRIMES
 found_up_to=0
 primes_list=[2,3]
